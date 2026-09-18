@@ -36,6 +36,5 @@ Bundle-ClassPath: lib/kafka-clients-4.3.1.jar,
  .,
  lib/commons-pool2-2.11.1.jar,
  lib/jedis-4.4.6.jar,
- lib/log4j-1.2.14.jar,
- icons/
+ lib/log4j-1.2.14.jar
 Service-Component: OSGI-INF/Service.xml

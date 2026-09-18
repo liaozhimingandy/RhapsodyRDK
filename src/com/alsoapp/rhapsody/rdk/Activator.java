@@ -25,6 +25,7 @@ import com.orchestral.rhapsody.persistentmap.PersistentMapService;
 import com.orchestral.rhapsody.security.SecurityException;
 
 import com.alsoapp.rhapsody.rdk.commpoint.kafka.KafkaCommPoint;
+import com.alsoapp.rhapsody.rdk.commpoint.httprestful.HttpRestfulCommPoint;
 import com.alsoapp.rhapsody.rdk.filter.redis.RedisClusterFilter;
 import com.alsoapp.rhapsody.rdk.filter.redis.RedisSentinelFilter;
 
@@ -190,8 +191,14 @@ public class Activator {
 		this.registrations.add(context.registerService(cpr, 
 				new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.kafka",
 						CommunicationPointGroup.COMMONLY_USED,
-				"openKafka", KafkaCommPoint.class, "/kafka32.bmp", null, null), null));
-		
+			"openKafka", KafkaCommPoint.class, "/icons/kafka32.bmp", null, null), null));
+
+		// 注册 HTTP 客户端通讯点（替代内置 HTTP 客户端，解决 HTTPS 加密套件过少导致握手失败）
+		this.registrations.add(context.registerService(cpr,
+				new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.httprestful",
+						CommunicationPointGroup.COMMONLY_USED,
+						"openHttpRestfulClient", HttpRestfulCommPoint.class,
+						"/icons/httprestful32.bmp", null, null), null));
 		// 注册过滤器
 		// Redis 过滤器：Cluster 经 Predixy 代理单端点，Sentinel 走哨兵发现 master
 		this.registrations.add(context.registerService(fr, new FilterRegistration(

@@ -186,8 +186,8 @@ public class Activator {
 		//this.registrations.add(context.registerService(fr, new FilterRegistration("com.alsoapp.rhapsody.module.test.AppendFilter", "AppendFilter", "测试", AppendFilter.class, null, null), null));		
 		
 		// 注册通讯点
-		this.registrations.add(context.registerService(cpr, new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.kafka.KafkaCommPoint", 
-				"openKafka", KafkaCommPoint.class,null,null, null), null));
+		this.registrations.add(context.registerService(cpr, new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.kafka", 
+				"openKafka", KafkaCommPoint.class, "/icons/kafka32.bmp", null, null), null));
 		
 		// 注册过滤器
 		// Redis 过滤器：Cluster 经 Predixy 代理单端点，Sentinel 走哨兵发现 master

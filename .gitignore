@@ -22,3 +22,9 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# 例外：lib/ 下的运行时依赖要随仓库分发（Bundle-ClassPath 直接引用）
+lib/*.jar
+
+# Eclipse/PDE 编译输出
+bin/

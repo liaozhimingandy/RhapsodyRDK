@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component immediate="true" name="RhapsodyRDK">
+  <implementation class="com.alsoapp.rhapsody.rdk.Activator"/>
+  <reference bind="setAuxiliaryFilesService" cardinality="1..1" interface="com.orchestral.rhapsody.configuration.auxiliaryfiles.AuxiliaryFilesService" name="AUXILIARY_FILE" policy="static" unbind="unsetAuxiliaryFilesService"/>
+  <reference bind="setDefinitionService" cardinality="1..1" interface="com.orchestral.rhapsody.model.definition.v_1_1.DefinitionService" name="DEFINITION" policy="static" unbind="unsetDefinitionService"/>
+  <reference bind="setMessageParsingService" cardinality="1..1" interface="com.orchestral.rhapsody.messageparsing.MessageParsingService" name="MESSAGE_PARSING" policy="static" unbind="unsetMessageParsingService"/>
+  <reference bind="setPersistentMapService" cardinality="1..1" interface="com.orchestral.rhapsody.persistentmap.PersistentMapService" name="PERSISTENT_MAP" policy="static" unbind="unsetPersistentMapService"/>
+  <reference bind="setSecurityObjectsService" cardinality="1..1" interface="com.orchestral.rhapsody.configuration.security.SecurityObjectsService" name="SECURITY" policy="static" unbind="unsetSecurityObjectsService"/>
+  <reference bind="setDocumentBuilderFactory" cardinality="1..1" interface="javax.xml.parsers.DocumentBuilderFactory" name="XML" policy="static" target="(&amp;(parser.namespaceAware=true)(parser.validating=false))" unbind="unsetDocumentBuilderFactory"/>
+  <reference bind="setIdGeneratorFactory" cardinality="1..1" interface="com.orchestral.rhapsody.idgenerator.IdGeneratorFactory" name="ID" policy="static" unbind="unsetIdGeneratorFactory"/>
+  <reference bind="setVariablesService" cardinality="1..1" interface="com.orchestral.rhapsody.configuration.variables.VariablesService" name="VARIABLES" policy="static" unbind="unsetVariablesService"/>
+</component>

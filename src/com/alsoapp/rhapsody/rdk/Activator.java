@@ -18,6 +18,7 @@ import com.orchestral.rhapsody.messageparsing.MessageParsingService;
 import com.orchestral.rhapsody.model.definition.v_1_1.DefinitionService;
 import com.orchestral.rhapsody.module.CommunicationPointRegistration;
 import com.orchestral.rhapsody.module.FilterRegistration;
+import com.orchestral.rhapsody.module.communicationpoint.CommunicationPointGroup;
 import com.orchestral.rhapsody.module.communicationpoint.CommunicationPointInfo;
 import com.orchestral.rhapsody.persistentmap.PersistentMap;
 import com.orchestral.rhapsody.persistentmap.PersistentMapService;
@@ -186,8 +187,10 @@ public class Activator {
 		//this.registrations.add(context.registerService(fr, new FilterRegistration("com.alsoapp.rhapsody.module.test.AppendFilter", "AppendFilter", "测试", AppendFilter.class, null, null), null));		
 		
 		// 注册通讯点
-		this.registrations.add(context.registerService(cpr, new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.kafka", 
-				"openKafka", KafkaCommPoint.class, "/icons/kafka32.bmp", null, null), null));
+		this.registrations.add(context.registerService(cpr, 
+				new CommunicationPointRegistration("com.alsoapp.rhapsody.rdk.commpoint.kafka",
+						CommunicationPointGroup.COMMONLY_USED,
+				"openKafka", KafkaCommPoint.class, "/kafka32.bmp", null, null), null));
 		
 		// 注册过滤器
 		// Redis 过滤器：Cluster 经 Predixy 代理单端点，Sentinel 走哨兵发现 master
